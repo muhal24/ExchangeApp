@@ -7,14 +7,47 @@
 
 import SwiftUI
 
+extension Color {
+
+    static let background = Color("background")
+    static let backgroundAccent = Color("backgroundAccent")
+    
+    static let textBody = Color("textBody")
+    static let textSecondary = Color("textSecondary")
+    static let textStrong = Color("textStrong")
+    static let textLight = Color("textLight")
+    static let textMedium = Color("textMedium")
+    static let keypadKey = Color("keypadKey")
+    
+    static let swapButton = Color("swapButton")
+    static let swapButtonSecondary = Color("swapButtonSecondary")
+    static let swapPrimary = Color("swapPrimary")
+    static let swapSecondary = Color("swapSecondary")
+    
+    static let textPrimary = Color("textPrimary")
+    
+}
+
 struct ContentView: View {
+
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State var showSplash = true
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        ZStack {
+            
+            // Home
+            HomeView()
+                    .environment(\.managedObjectContext, managedObjectContext)
+            
+            
+        }
+        
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+class ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
